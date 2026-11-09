@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet, Tarmoq va Antiviruslar - Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .question {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .question p {
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        button {
+            display: block;
+            width: 100%;
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #result {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Internet, Tarmoq va Antivirus Testi</h1>
+
+    <form id="quizForm">
+        <!-- 1-savol -->
+        <div class="question">
+            <p>1. Dunyo bo'ylab kompyuterlarni o'zaro bog'lovchi global tarmoq qanday ataladi?</p>
+            <label><input type="radio" name="q1" value="A"> A) Intranet</label>
+            <label><input type="radio" name="q1" value="B"> B) Internet</label>
+            <label><input type="radio" name="q1" value="C"> C) Lokal tarmoq</label>
+        </div>
+
+        <!-- 2-savol -->
+        <div class="question">
+            <p>2. Lokal tarmoq (Local Area Network) qisqartmasi qanday yoziladi?</p>
+            <label><input type="radio" name="q2" value="A"> A) WAN</label>
+            <label><input type="radio" name="q2" value="B"> B) MAN</label>
+            <label><input type="radio" name="q2" value="C"> C) LAN</label>
+        </div>
+
+        <!-- 3-savol -->
+        <div class="question">
+            <p>3. Quyidagilardan qaysi biri antivirus dasturi hisoblanadi?</p>
+            <label><input type="radio" name="q3" value="A"> A) Microsoft Word</label>
+            <label><input type="radio" name="q3" value="B"> B) ESET NOD32</label>
+            <label><input type="radio" name="q3" value="C"> C) Google Chrome</label>
+        </div>
+
+        <!-- 4-savol -->
+        <div class="question">
+            <p>4. Kompyuter viruslaridan himoya qilish va ularni yo'q qilish uchun nima xizmat qiladi?</p>
+            <label><input type="radio" name="q4" value="A"> A) Brauzerlar</label>
+            <label><input type="radio" name="q4" value="B"> B) Antivirus dasturlari</label>
+            <label><input type="radio" name="q4" value="C"> C) Operatsion tizim</label>
+        </div>
+
+        <!-- 5-savol -->
+        <div class="question">
+            <p>5. Wi-Fi texnologiyasi nimaga asoslangan?</p>
+            <label><input type="radio" name="q5" value="A"> A) Radiochastota to'lqinlariga</label>
+            <label><input type="radio" name="q5" value="B"> B) Optik tolali kabellarga</label>
+            <label><input type="radio" name="q5" value="C"> C) Telefon simlariga</label>
+        </div>
+
+        <button type="button" onclick="checkAnswers()">Natijani tekshirish</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function checkAnswers() {
+            // To'g'ri javoblar
+            const answers = {
+                q1: "B",
+                q2: "C",
+                q3: "B",
+                q4: "B",
+                q5: "A"
+            };
+
+            let score = 0;
+            let total = 5;
+
+            // Foydalanuvchi tanlagan javoblarini tekshirish
+            for (let key in answers) {
+                const selected = document.querySelector(`input[name="${key}"]:checked`);
+                if (selected && selected.value === answers[key]) {
+                    score++;
+                }
+            }
+
+            // Natijani chiqarish
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `Siz ${total} ta savoldan ${score} tasiga to'g'ri javob berdingiz!`;
+            
+            if (score === total5) {
+                resultDiv.style.color = "green";
+            } else {
+                resultDiv.style.color = "orange";
+            }
+        }
+    </script>
+
+</body>
+</html>
